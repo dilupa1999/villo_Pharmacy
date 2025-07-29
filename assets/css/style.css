@@ -3814,32 +3814,6 @@ body.error404.logged-in {
 	display:block;
 	line-height:15px;
 }
-/* Footer Columns */
-.footer-area-middle .col_1,
-.footer-area-middle .col_2,
-.footer-area-middle .col_3,
-.footer-area-middle .col_4,
-.footer-area-middle .col_5,
-.footer-area-middle .col_6,
-.footer-area-middle .col_7,
-.footer-area-middle .col_8,
-.footer-area-middle .col_9,
-.footer-area-middle .col_10,
-.footer-area-middle .col_11,
-.footer-area-middle .col_12 { display:inline-block; vertical-align: top; float: left; margin-bottom: 15px; }
-
-.footer-area-middle .col_1 { width: 8.33333%; }
-.footer-area-middle .col_2 { width: 16.66667%; }
-.footer-area-middle .col_3 { width: 25%; }
-.footer-area-middle .col_4 { width: 33.33333%; }
-.footer-area-middle .col_5 { width: 41.66667%; }
-.footer-area-middle .col_6 { width: 50%; }
-.footer-area-middle .col_7 { width: 58.33333%; }
-.footer-area-middle .col_8 { width: 66.66667%; }
-.footer-area-middle .col_9 { width: 75%; }
-.footer-area-middle .col_10 { width: 83.33333%; }
-.footer-area-middle .col_11 { width: 91.66667%; }
-.footer-area-middle .col_12 { width: 100%; }
 
 /* Gallery Single Page*/
 .custompost_details { overflow:hidden; }
@@ -3952,3 +3926,43 @@ input[disabled] {
     border: 1px solid #e8e8e8;
     border-bottom-color: #eeeeee
 }
+
+/*udara was here*/
+
+                    .social-links {
+                        display: flex;
+                        gap: 8px;
+                        margin-top: 5px;
+                    }
+                    
+                    .social-link {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 35px;
+                        height: 35px;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        color: white;
+                        border-radius: 50%;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                        font-size: 14px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                    }
+                    
+                    .social-link:hover {
+                        background-color: #007bff;
+                        color: white;
+                        transform: translateY(-2px);
+                        text-decoration: none;
+                        border-color: #007bff;
+                        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+                    }
+                    
+                    .social-link:focus {
+                        outline: 2px solid #007bff;
+                        outline-offset: 2px;
+                    }
+                a{
+					text-decoration: none !important;
+				}
