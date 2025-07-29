@@ -1,12 +1,4 @@
 /*
-Name: Labora
-Author: AivahThemes
-Author URI: http://themeforest.net/user/AivahThemes
-Description: This template is useful for Laboratory Service Providers etc. Template comes with ease in usability which makes your site ready in minutes.
-Version: 1.0
-*/
-/* ================================================================= */
-/*
 [Table of contents]
 01. Reset CSS
 02. General CSS
@@ -29,6 +21,15 @@ Version: 1.0
 /* 01. Reset CSS                                                     */
 /* http://meyerweb.com/eric/tools/css/reset/ - v2.0 - License: none  */
 /* ================================================================= */
+
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/futura.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Helvetica";
+  src: url("fonts/Helvetica.ttf") format("truetype");
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -560,7 +561,7 @@ html[xmlns] .clearfix { display: block; }
 /* ================================================================= */
 
 body, input, select, textarea  {
-	font: normal 16px/1.7 "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font: normal 16px/1.7 "Futura",Arial,sans-serif;
 	color: #444;
 }
 
@@ -605,7 +606,7 @@ body { overflow-x: hidden; }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
-	font-family: "Poppins", sans-serif;
+	font-family: "Helvetica", sans-serif;
 	color:#333333;
 	font-weight: 300;
 }
@@ -3134,7 +3135,7 @@ select.select { cursor: pointer; height: 28px; margin: 0; -moz-opacity: 0; filte
 	border-top: 1px solid #d1d1d1;
 	border-bottom: 1px solid #d1d1d1;
 	color: #686868;
-	font-family: Montserrat, "Helvetica Neue", sans-serif;
+	font-family: "Futura", sans-serif;
 	font-size: 13px;
 	font-size: 0.8125rem;
 	line-height: 1.6153846154;
