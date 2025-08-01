@@ -68,7 +68,8 @@
 .flexslider .slides img {
 	display: block;
 	width: 100%;
-	height: auto;
+	height: 60dvh;
+	object-fit: cover;
 	margin: 0 auto;
 	-khtml-user-select: none;
     -o-user-select: none;

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Villo Pharma</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="assets/js/jquery.js"></script>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900%7CPoppins:300,400,800&amp;subset=latin-ext"
+		rel="stylesheet">
+
+	<!-- Font Awesome and peStroke Icons -->
+	<link rel="stylesheet" type="text/css" href="assets/css/fontawesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+
+	<!-- Required CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+		crossorigin="anonymous"></script>
+
+	<!-- PrettyPhoto -->
+	<link rel="stylesheet" type="text/css" href="assets/css/prettyPhoto.css">
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+
+	<!-- Required Scripts -->
+	<script src="assets/js/superfish.js"></script>
+	<script src="assets/js/hoverIntent.js"></script>
+	<script src="assets/js/jquery.sticky.js"></script>
+	<script src="assets/js/labora-custom.js"></script>
+
+	<!-- Google Maps API Key -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv5eWuEipRmZz7jJU2lnpqCbwVq4PDVCQ&amp;callback=myMap"
+		async defer></script>
+	<!-- Angular Contact Form -->
+	<script src="assets/js/angular.min.js"></script>
+	<script>
+		var map;
+		function myMap() {
+			var mapOptions = {
+				center: new google.maps.LatLng(51.5, -0.12),
+				zoom: 10,
+				mapTypeId: google.maps.MapTypeId.HYBRID
+			}
+			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		}
+	</script>
+	<script>
+		var app = angular.module('contact_form', []);
+		app.controller('formController', function ($scope, $http, $timeout) {
+			$scope.submitForm = function () {
+
+				$scope.formData = {};
+				$http({
+					method: "POST",
+					url: "mail.php",
+					data: { name: $scope.name, email: $scope.email, subject: $scope.subject, message: $scope.message },
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+				}).then(function (response) {
+					data = response.data;
+					if (!data.success) {
+						// if not successful, bind errors to error variables
+						$scope.errorName = data.errors.name;
+						$scope.errorMail = data.errors.email;
+						$scope.errorPhone = data.errors.phone;
+						$scope.errorNotes = data.errors.notes;
+						$scope.messages = null;
+					}
+					else {
+						// if successful, bind success message to message
+						//$scope.errorName = $scope.errorMail = $scope.errorSubject = null;
+						$scope.name = '';
+						$scope.email = '';
+						$scope.subject = '';
+						$scope.message = '';
+						$scope.c_form.$setPristine();
+						$scope.messages = data.messages;
+						$timeout(function () {
+
+							// Loadind done here - Show message for 3 more seconds.
+							$timeout(function () {
+								$scope.messages = false;
+							}, 3000);
+
+						}, 2000);
+
+
+					}
+				}, function (error) {
+
+				});
+			}
+		});
+	</script>
+</head>
+
+<body data-ng-app="contact_form">
+	<div class="labora_page_loader" style="display: none;"></div>
+	<div id="wrapper">
+
+		<!--topbar (hidden)-->
+		<div class="topbar d-none">
+
+			<div class="inner">
+
+				<div class="topbar-left">
+					<aside id="text-2" class=" widget_text">
+						<div class="textwidget">Molecular biology laboratories + Life science laboratories</div>
+					</aside>
+				</div><!-- .topbar-left -->
+				<div class="topbar-right">
+					<aside id="nav_menu-2" class=" widget_nav_menu">
+						<div class="menu-topbar-menu-container">
+							<ul id="menu-topbar-menu" class="menu">
+								<li><a href="#">Help</a></li>
+								<li><a href="#">FAQ's</a></li>
+								<li><a href="#">Press</a></li>
+								<li><a href="#">Legal</a></li>
+							</ul>
+						</div>
+					</aside>
+				</div><!-- .topbar-right -->
+			</div><!-- .inner -->
+		</div><!-- .topbar -->
+
+		<header class="header-style1">
+			<div class="header">
+				<div class="header-area">
+					<div class="logo">
+						<a href="index.html" title="Villo Pharmacy">
+							<img src="assets/images/vp-logo-transp.png" style="width: 80px;" alt="Villo Pharmacy">
+						</a>
+					</div><!-- /logo -->
+
+					<div class="primarymenu menuwrap">
+						<ul class="sf-menu">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about-us.html">About Us</a></li>
+							<li><a href="our-services.html">Our Services</a></li>
+							<li><a href="contact-us.html">Contact Us</a></li>
+						</ul>
+						<!-- Bootstrap Offcanvas Toggle Button -->
+						<button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+							data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas"
+							id="iva-mobile-nav-icon">
+							<span></span><span></span><span></span><span></span>
+						</button>
+					</div>
+
+					<!-- Header Widget Area (hidden) -->
+					<div class="icn_wrap">
+						<div id="ivaSearch" class="ivaSearch icnalign d-none"><i class="fa fa-search fa-fw"></i></div>
+					</div>
+				</div>
+
+				<div id="ivaSearchbar" class="act">
+					<div class="inner">
+						<form method="get" id="searchform">
+							<input type="text" value="" name="s" id="s" placeholder="Search here..."
+								class="ivaInput headerSearch">
+							<span class="search-close"><i class="fa fa-close fa-1"></i></span>
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Bootstrap Offcanvas Mobile Menu -->
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNavOffcanvas"
+			aria-labelledby="mobileNavOffcanvasLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="mobileNavOffcanvasLabel">
+					<img src="assets/images/vp-logo-transp.png" style="width: 80px;" alt="Villo Pharmacy">
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about-us.html">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="our-services.html">Our Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact-us.html">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="primary" class="pagemid">
+				<div class="inner">
+					<main class="content-area">
+						<div class="entry-content-wrapper">
+
+							<div class="ct-section1">
+								<iframe style="width: 100%; height: 500px; border: none;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31662.289338885934!2d80.58542356858278!3d7.26515900871921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae368a5580f9345%3A0xb5640099423b7cfb!2sHeerassagala!5e0!3m2!1sen!2slk!4v1754030973876!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+
+							<div class="ct-section2" style="padding: 80px 0">
+
+								<div class="one_third">
+									<div class="aligncenter">
+										<i style="font-size:44px;color:#990b6e;" class="fa fa-envelope-o"></i>
+										<div class="demo_space" style="height:20px"></div>
+										<h4>Have any questions?</h4>
+										<hr class="ct-hr">
+										<h5>contact@domain.com</h5>
+									</div>
+								</div>
+								<div class="one_third">
+									<div class="aligncenter">
+										<i style="font-size:44px;color:#990b6e;" class="fa fa-whatsapp"></i>
+										<div class="demo_space" style="height:20px"></div>
+										<h4>WhatsApp</h4>
+										<hr class="ct-hr">
+										<h5>+91-7000012345</h5>
+									</div>
+								</div>
+								<div class="one_third last">
+									<div class="aligncenter">
+										<i style="font-size:44px;color:#990b6e;" class="fa fa-phone"></i>
+										<div class="demo_space" style="height:20px"></div>
+										<h4>Contact Us</h4>
+										<hr class="ct-hr">
+										<h5>+1800-1234567890</h5>
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+
+							<div class="ct-section3">
+								<div class="two_third">
+									<div class="section-inner clearfix">
+
+										<div class="fancyheading left">
+											<h3 class="fancy-title">
+												<span style="color:#444444;"><strong>GET IN
+														TOUCH</strong><small></small></span>
+											</h3>
+										</div>
+
+										<div id="form" data-ng-controller="formController">
+
+											<div id="messages" class="well" data-ng-show="messages">
+												<div
+													class="iva_message_box success iva-box-solid iva-box-large clearfix">
+													<div class="iva_message_box_content">{{messages}}</div>
+												</div>
+											</div>
+
+											<form name="c_form" novalidate>
+												<p><input type="text" name="name" placeholder="Name"
+														data-ng-class="{ 'has-error' : c_form.name.$invalid && !c_form.name.$pristine}"
+														data-ng-model='name' required></p>
+												<p><input type="email"
+														data-ng-class="{ 'has-error' : c_form.email.$invalid && !c_form.email.$pristine}"
+														name="email" placeholder="Email" data-ng-model="email" required>
+
+												</p>
+												<p><input type="text"
+														data-ng-class="{ 'has-error' : c_form.subject.$invalid && !c_form.subject.$pristine}"
+														name="subject" size="40" placeholder="Subject"
+														data-ng-model="subject" required>
+												</p>
+												<p><textarea name="message" cols="40" rows="10" data-ng-model="message"
+														placeholder="Tell us about your Query"></textarea></p>
+												<p><input type="submit" data-ng-click="submitForm()"
+														data-ng-disabled="c_form.$invalid" value="SEND MESSAGE"></p>
+											</form>
+
+										</div><!--form-->
+
+									</div>
+
+
+								</div>
+
+								<div class="one_third last ct-office">
+
+									<div class="fancyheading left">
+										<h3 class="fancy-title">
+											<span style="color:#444444;"><strong>OUR HEAD
+													OFFICE</strong><small></small></span>
+										</h3>
+									</div>
+
+									<h4 style="font-weight: 900;">Labora - Business, Laboratory & Pharmaceutical</h4>
+									<p>Labora is a creative & powerful medical and laboratory <br></p>
+
+									<div class="contactinfo-wrap">
+										<p><i class="fa fa-map-marker fa-fw"></i> 121 King Street, Melbourn
+											<br> Victoria 3000 Australia
+										</p>
+										<p><i class="fa fa-link fa-fw"></i><a href="http://www.envato.com/">
+												www.envato.com</a></p>
+										<p><i class="fa fa-fax fa-fw"></i> +61 3 8376 6284</p>
+									</div>
+
+								</div>
+							</div><!--.ct-section3-->
+						</div><!--entry-content-wrapper clearfix-->
+					</main>
+				</div><!--inner-->
+			</div><!--.pagemid-->
+		</div><!--main-->
+
+		<footer class="footer bg-dark text-light">
+			<!-- Footer Middle Section -->
+			<div class="footer-middle py-5">
+				<div class="container">
+					<div class="row g-4">
+						<!-- Company Info Column -->
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-widget">
+								<div class="mb-4">
+									<img src="assets/images/vp-logo-transp.png" class="mb-3" style="width: 100px;"
+										alt="Villo Pharmacy">
+									<h6 class="text-light lh-base">
+										Villo Pharmacy is your trusted healthcare partner in Kandy, providing quality
+										pharmaceutical services and expert health consultations for the community.
+									</h6>
+								</div>
+
+								<!-- Social Media Section -->
+								<div class="social-media-section">
+									<h6 class="text-light mb-3 fw-medium">Follow Us:</h6>
+									<div class="social-links d-flex gap-3">
+										<a href="#" class="social-link text-light" aria-label="Facebook"
+											title="Facebook">
+											<i class="fa fa-facebook-f fa-lg"></i>
+										</a>
+										<a href="#" class="social-link text-light" aria-label="Instagram"
+											title="Instagram">
+											<i class="fa fa-instagram fa-lg"></i>
+										</a>
+										<a href="#" class="social-link text-light" aria-label="WhatsApp"
+											title="WhatsApp">
+											<i class="fa fa-whatsapp fa-lg"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Quick Links Column -->
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-widget">
+								<h5 class="text-light mb-4 fw-semibold">Quick Links</h5>
+								<ul class="list-unstyled footer-links">
+									<li class="mb-2">
+										<a href="#" class="text-light text-decoration-none">About Us</a>
+									</li>
+									<li class="mb-2">
+										<a href="#" class="text-light text-decoration-none">Contact Us</a>
+									</li>
+									<li class="mb-2">
+										<a href="#" class="text-light text-decoration-none">Store Hours</a>
+									</li>
+									<li class="mb-2">
+										<a href="#" class="text-light text-decoration-none">Health Tips</a>
+									</li>
+									<li class="mb-2">
+										<a href="#" class="text-light text-decoration-none">Emergency Services</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Contact Info Column -->
+						<div class="col-lg-4 col-md-12">
+							<div class="footer-widget">
+								<h5 class="text-light mb-4 fw-semibold">GET IN TOUCH</h5>
+								<div class="contact-info">
+									<div class="contact-item d-flex mb-3">
+										<div class="contact-icon me-3 mt-1">
+											<i class="fa fa-globe fa-lg text-primary"></i>
+										</div>
+										<div class="contact-details">
+											<span class="text-light">
+												No. 614, Colombo Road, Nanuoya<br>
+												Pilimathalawa, Kandy, Sri Lanka
+											</span>
+										</div>
+									</div>
+
+									<div class="contact-item d-flex mb-3">
+										<div class="contact-icon me-3">
+											<i class="fa fa-phone fa-lg text-primary"></i>
+										</div>
+										<div class="contact-details">
+											<a href="tel:+94773116657" class="text-light text-decoration-none">
+												077 311 6657
+											</a>
+										</div>
+									</div>
+
+									<div class="contact-item d-flex">
+										<div class="contact-icon me-3">
+											<i class="fa fa-envelope fa-lg text-primary"></i>
+										</div>
+										<div class="contact-details">
+											<a href="mailto:villogroup@gmail.com"
+												class="text-light text-decoration-none">
+												villogroup@gmail.com
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Bottom Section -->
+			<div class="footer-bottom py-3 border-top border-secondary">
+				<div class="container">
+					<div class="text-center">
+						<p class="mb-0 text-white">
+							© 2025 All Rights Reserved | Villo Pharma |
+							Designed & Developed by
+							<a href="https://siliconradonnetworks.com" class="text-primary text-decoration-none">
+								Silicon Radon Networks (Pvt) Ltd.
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div><!-- #wrapper-->
+
+	<div id="back-top"><a href="#header" title="Scroll Top"><span class="fa fa-angle-up fa-fw fa-2x"></span></a></div>
+
+</body>
+
+</html>
