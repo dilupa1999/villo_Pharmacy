@@ -79,6 +79,17 @@
 			});
 		});
 	</script>
+
+	<style>
+		html{
+			overflow-x: hidden;
+		}
+		@media (max-width: 575px) {
+			.col-sm-6.col-md-3 {
+				padding: 0px 25px;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -115,7 +126,7 @@
 				<div class="header-area">
 					<div class="logo">
 						<a href="index.html" title="Villo Pharmacy">
-							<img src="assets/images/vp-logo-transp.png" style="width: 80px;" alt="Villo Pharmacy">
+							<img src="assets/images/vp-logo-transp.png" style="width: 30px;" alt="Villo Pharmacy">
 						</a>
 					</div><!-- /logo -->
 
@@ -157,7 +168,7 @@
 			aria-labelledby="mobileNavOffcanvasLabel">
 			<div class="offcanvas-header">
 				<h5 class="offcanvas-title" id="mobileNavOffcanvasLabel">
-					<img src="assets/images/vp-logo-transp.png" style="width: 80px;" alt="Villo Pharmacy">
+					<img src="assets/images/vp-logo-transp.png" style="width: 30px;" alt="Villo Pharmacy">
 				</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
@@ -184,14 +195,15 @@
 			<div id="primary" class="pagemid">
 				<div class="section_row" style="padding:0">
 					<div class="section_inner">
-						<div class="at-fancy-heading-v1 textcenter" style="margin-top:80px">
+						<div class="at-fancy-heading-v1 textcenter" style="margin-top:30px">
 							<h2 style="color:#8a8c98">We use personalized care and innovation<br>to bring better health
 								to Kandy and beyond.</h2>
 							<span class="at-fancy-heading-v1-sep"></span>
 						</div>
-						<div class="demo_space" style="height:80px"></div>
+						<div class="demo_space d-none d-md-block" style="height:30px"></div>
 						<div class="one_third">
-							<figure><img src="assets/images/laugh.jpg" alt=""></figure>
+							<figure><img src="assets/images/vp-logo.png" class="w-100 d-none d-md-block"
+									style="border: 1px solid #990b6e;" alt=""></figure>
 						</div>
 						<div class="two_third last">
 							<p>As your trusted health partner, we provide the Kandy community with expert guidance,
@@ -204,8 +216,9 @@
 								bar for pharmacy care in Sri Lanka.</p>
 							<h3>We deliver healthcare that’s accessible, compassionate, and reliable. Every service,
 								every product, every time.</h3>
-							<figure><img width="289" height="64" src="assets/images/johana-sign.png" alt=""></figure>
-							<p>FOUNDER OF VILLO PHARMACY</p>
+							<figure class="d-none"><img width="289" height="64" src="assets/images/johana-sign.png"
+									alt=""></figure>
+							<p class="d-none">FOUNDER OF VILLO PHARMACY</p>
 						</div>
 					</div>
 				</div>
@@ -214,7 +227,7 @@
 
 				<div class="section_row clearfix" style="padding-top:0">
 					<div class="section_inner">
-						<div class="divider thin" style="margin:80px 0;height:1px"></div>
+						<div class="divider thin" style="margin:30px 0;height:1px"></div>
 						<div class="one_half">
 							<div class="one_half">
 								<span style="color:#990b6e!important"><i class="fa fa-heartbeat"
@@ -237,7 +250,8 @@
 										style="font-size:45px"></i></span>
 								<h5 style="margin:10px 0px"><strong>INNOVATION DRIVEN</strong></h5>
 								<p>
-									We embrace modern pharmacy practices and digital tools to offer faster, safer, and more personalized care.
+									We embrace modern pharmacy practices and digital tools to offer faster, safer, and
+									more personalized care.
 								</p>
 							</div>
 							<div class="one_half last">
@@ -247,7 +261,8 @@
 								</div>
 								<h5 style="margin:10px 0px"><strong>TRUST ABOVE ALL</strong></h5>
 								<p>
-									At Villo, your health and privacy are our top priorities. We build lasting relationships through honesty and reliability.
+									At Villo, your health and privacy are our top priorities. We build lasting
+									relationships through honesty and reliability.
 								</p>
 							</div>
 						</div>
@@ -300,51 +315,51 @@
 								health journey.</h2>
 							<span class="at-fancy-heading-v1-sep"></span>
 						</div>
-						<div class="demo_space" style="height:80px"></div>
-						<div class="at-person grid col_4">
-							<ul>
-								<li>
+						<div class="demo_space" style="height:30px"></div>
+						<div class="at-person">
+							<ul class="row g-2" style="padding-left: 0;">
+								<li class="col-sm-6 col-md-3">
 									<div class="at-person-image"><a href="#"><img alt="Nilu Perera"
-												src="assets/images/team1.jpg"></a></div>
+												src="assets/images/team1.jpg" class="w-100"></a></div>
 									<div class="at-person-content">
 										<h4><a href="#">Nilu Perera</a></h4>
 										<h6>Founder & CEO</h6>
 										<p>A licensed pharmacist with a heart for service, Nilu leads with vision and
 											compassion.</p>
-										<a class="read_more" href="team-member.html"><span>View Profile</span></a>
+
 									</div>
 								</li>
-								<li>
+								<li class="col-sm-6 col-md-3">
 									<div class="at-person-image"><a href="#"><img alt="Kasun Silva"
-												src="assets/images/team2.jpg"></a></div>
+												src="assets/images/team2.jpg" class="w-100"></a></div>
 									<div class="at-person-content">
 										<h4><a href="#">Kasun Silva</a></h4>
 										<h6>Pharmacy Manager</h6>
 										<p>With over a decade in community pharmacy, Kasun ensures accuracy and friendly
 											care every day.</p>
-										<a class="read_more" href="team-member.html"><span>View Profile</span></a>
+
 									</div>
 								</li>
-								<li>
+								<li class="col-sm-6 col-md-3">
 									<div class="at-person-image"><a href="#"><img alt="Dinithi Fernando"
-												src="assets/images/team3.jpg"></a></div>
+												src="assets/images/team3.jpg" class="w-100"></a></div>
 									<div class="at-person-content">
 										<h4><a href="#">Dinithi Fernando</a></h4>
 										<h6>Marketing & Wellness</h6>
 										<p>Dinithi brings wellness campaigns to life, building awareness and promoting
 											healthy lifestyles.</p>
-										<a class="read_more" href="team-member.html"><span>View Profile</span></a>
+
 									</div>
 								</li>
-								<li>
+								<li class="col-sm-6 col-md-3">
 									<div class="at-person-image"><a href="#"><img alt="Ruwan Jayasooriya"
-												src="assets/images/team4.jpg"></a></div>
+												src="assets/images/team4.jpg" class="w-100"></a></div>
 									<div class="at-person-content">
 										<h4><a href="#">Ruwan Jayasooriya</a></h4>
 										<h6>Logistics & Inventory</h6>
 										<p>Ruwan manages procurement and ensures shelves are always stocked with what
 											customers need most.</p>
-										<a class="read_more" href="team-member.html"><span>View Profile</span></a>
+
 									</div>
 								</li>
 							</ul>
@@ -354,7 +369,7 @@
 
 				<div class="section_row clearfix" style="padding-top:0">
 					<div class="section_inner">
-						<div class="divider thin" style="margin:80px 0;height:1px"></div>
+						<div class="divider thin" style="margin:30px 0;height:1px"></div>
 						<div class="one_half">
 							<h2><strong>Let’s Improve Health Together</strong></h2>
 							<p>We’re not just a pharmacy — we’re a mission. Every new service we offer is based on real
