@@ -809,6 +809,7 @@ a:hover {
 /* Generic  */
 body {
   overflow-x: hidden;
+  font-family: "Futura", serif !important;
 }
 
 /* Headings  */
