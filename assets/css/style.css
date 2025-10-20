@@ -1265,7 +1265,7 @@ body:not(.fullwidth) .entry-content-wrapper {
 .header .logo img,
 .header-style1 .logo img,
 .logo img {
-  width: 220px !important; /* increased size per request (change value as needed) */
+  width: 420px !important; /* desktop: 420px */
   height: auto !important;
   max-width: none !important;
   display: inline-block !important;
@@ -1276,7 +1276,7 @@ body:not(.fullwidth) .entry-content-wrapper {
   .header .logo img,
   .header-style1 .logo img,
   .logo img {
-    width: 160px !important;
+    width: 320px !important; /* tablet */
   }
 }
 
@@ -1284,7 +1284,7 @@ body:not(.fullwidth) .entry-content-wrapper {
   .header .logo img,
   .header-style1 .logo img,
   .logo img {
-    width: 110px !important;
+    width: 240px !important; /* mobile */
   }
 }
 
