@@ -1252,7 +1252,7 @@ body:not(.fullwidth) .entry-content-wrapper {
   padding: 0;
   position: relative;
   vertical-align: middle;
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .logo img {
@@ -1265,7 +1265,7 @@ body:not(.fullwidth) .entry-content-wrapper {
 .header .logo img,
 .header-style1 .logo img,
 .logo img {
-  width: 420px !important; /* desktop: 420px */
+  width: 55px !important; /* optimized for modern UI design */
   height: auto !important;
   max-width: none !important;
   display: inline-block !important;
@@ -1276,7 +1276,7 @@ body:not(.fullwidth) .entry-content-wrapper {
   .header .logo img,
   .header-style1 .logo img,
   .logo img {
-    width: 320px !important; /* tablet */
+    width: 50px !important;
   }
 }
 
@@ -1284,7 +1284,7 @@ body:not(.fullwidth) .entry-content-wrapper {
   .header .logo img,
   .header-style1 .logo img,
   .logo img {
-    width: 240px !important; /* mobile */
+    width: 45px !important;
   }
 }
 
@@ -1375,7 +1375,13 @@ h2#site-description {
 
 .header-style1 .sf-menu > li > a {
   padding: 3.5em 0;
-  margin: 0 1em;
+  margin: 0 0.8em;
+}
+.header-style1 .sf-menu > li:first-child > a {
+  margin-left: 0.8em;
+}
+.header-style1 .sf-menu > li:last-child > a {
+  margin-right: 0.8em;
 }
 .header-style1 .iva_socials {
   display: table;
@@ -2164,8 +2170,8 @@ body:not(.home) .header_wrapper.header-style4 {
   min-width: 14em; /* allow long menu items to determine submenu width */
 }
 .sf-menu a {
-  padding: 1em 1.3em;
-  font-size: 14px;
+  padding: 1em 1.1em;
+  font-size: 15px;
   text-decoration: none;
   color: #2a2a2a;
   -webkit-transition: all 200ms ease;
@@ -2184,6 +2190,7 @@ body:not(.home) .header_wrapper.header-style4 {
 .primarymenu > li > a {
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .sf-menu ul li a {
