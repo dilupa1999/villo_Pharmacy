@@ -906,6 +906,33 @@
 
 	.milestone_icon {
 		float: none;
+		}
+
+	/* Ensure navbar logo follows project-wide sizing and remains responsive */
+	/* This override comes after other responsive rules to take precedence */
+	.header .logo img,
+	.header-style1 .logo img,
+	.logo img {
+		width: 220px !important;
+		height: auto !important;
+		max-width: none !important;
+	}
+
+	@media (max-width: 991px) {
+		.header .logo img,
+		.header-style1 .logo img,
+		.logo img {
+			width: 160px !important;
+		}
+	}
+
+	@media (max-width: 575px) {
+		.header .logo img,
+		.header-style1 .logo img,
+		.logo img {
+			width: 110px !important;
+		}
+	}
     	display: table;
     	margin: 0 auto;
 	}
