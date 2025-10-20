@@ -1261,6 +1261,33 @@ body:not(.fullwidth) .entry-content-wrapper {
   transition: all 0.3s ease-out;
 }
 
+/* Force navbar logo size so it's consistent across pages and overrides other rules */
+.header .logo img,
+.header-style1 .logo img,
+.logo img {
+  width: 220px !important; /* increased size per request (change value as needed) */
+  height: auto !important;
+  max-width: none !important;
+  display: inline-block !important;
+}
+
+/* Responsive: scale logo down on medium and small screens */
+@media (max-width: 991px) {
+  .header .logo img,
+  .header-style1 .logo img,
+  .logo img {
+    width: 160px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .header .logo img,
+  .header-style1 .logo img,
+  .logo img {
+    width: 110px !important;
+  }
+}
+
 /* ==== Logo Text ==== */
 
 h1#site-title {
